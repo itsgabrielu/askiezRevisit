@@ -30,7 +30,8 @@ var questSearch = (res) => {
 }
 
 app.get('/', (req, res) => {
-  questSearch(res)
+  // questSearch(res)
+  res.render('home')
 })
 
 app.post('/', (req, res) => {
@@ -42,5 +43,5 @@ app.post('/', (req, res) => {
   res.redirect('/')
 })
 app.listen(port, () => {
-  console.log('App is running on port 4000')
+  console.log('App is running on port 8080')
 })
