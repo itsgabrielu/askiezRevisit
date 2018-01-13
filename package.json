@@ -1,0 +1,18 @@
+{
+  "name": "askiez",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/imjustlooking/askiez.git",
+  "author": "Gabriel <gabrielulu@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.12.3",
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  }
+}

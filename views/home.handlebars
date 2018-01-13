@@ -1,0 +1,33 @@
+<div class="container is-fluid">
+  <div class = "notification">
+  <div>This is Home; welcome {{name}}</div>
+</div>
+</div>
+
+<form action = '/' method = "post">
+<div class="field">
+  <label class="label">Question</label>
+  <div class="control">
+    <input class="input" name = "question" type="text" placeholder="Ask us something!">
+  </div>
+</div>
+  <div class="control">
+    <input type="submit" value="Ask!">
+  </div>
+</form>
+
+<div class="tile is-ancestor">
+  {{#each qList}}
+  <div class="tile is -4">
+    <div class="tile is-child box">
+    {{ this.question}}
+    <form action = '/' method = "post">
+      <input type="radio" name={{this._id}} value="1"> &#128077; <br>
+      <input type="radio" name={{this._id}} value="-1"> &#128078;<br>
+      <input type="submit" value="Vote!">
+    </form>
+    <p>{{ this.score}} points<p>
+  </div>
+  </div>
+  {{/each}}
+</div>
