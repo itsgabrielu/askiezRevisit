@@ -24,10 +24,10 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
 var questSearch = (res) => {
-  res.render('home')
+  // res.render('home')
   Question.find({}, (err, quest) => {
     if (err) return console.log(err)
-    // res.render('home', {name: 'fellow WDI 12 Hustler.', qList: quest})
+    res.render('home', {name: 'fellow WDI 12 Hustler.', qList: quest})
     console.log('render trigger', quest)
   }
 )
