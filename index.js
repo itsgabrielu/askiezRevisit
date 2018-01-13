@@ -7,8 +7,9 @@ const bodyParser = require('body-parser')
 const fs = require('fs')
 const Question = require('./models/question.js')
 var port = process.env.PORT || 8080;
+var mlab = process.env.MONGOLAB_URI || 'mongodb://localhost/questionbank'
 
-mongoose.connect('mongodb://localhost/questionbank', {
+mongoose.connect(mlab, {
   useMongoClient: true
 })
 mongoose.Promise = global.Promise
