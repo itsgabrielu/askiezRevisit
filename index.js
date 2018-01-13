@@ -24,7 +24,8 @@ app.set('view engine', 'handlebars')
 var questSearch = (res) => {
   Question.find({}, (err, quest) => {
     if (err) return console.log(err)
-    res.render('home', {name: 'fellow WDI 12 Hustler.', qList: quest})
+    res.render('home')
+    // res.render('home', {name: 'fellow WDI 12 Hustler.', qList: quest})
     console.log('render trigger', quest)
   }
 )
