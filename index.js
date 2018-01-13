@@ -31,8 +31,8 @@ var questSearch = (res) => {
 }
 
 app.get('/', (req, res) => {
-  // questSearch(res)
-  res.render('home')
+  questSearch(res)
+  // res.render('home')
 })
 
 app.post('/', (req, res) => {
