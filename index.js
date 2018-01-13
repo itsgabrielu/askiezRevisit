@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const fs = require('fs')
 const Question = require('./models/question.js')
+var port = process.env.PORT || 8080;
+
 mongoose.connect('mongodb://localhost/questionbank', {
   useMongoClient: true
 })
@@ -39,6 +41,6 @@ app.post('/', (req, res) => {
   })
   res.redirect('/')
 })
-app.listen(4000, () => {
+app.listen(port, () => {
   console.log('App is running on port 4000')
 })
