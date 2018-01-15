@@ -26,7 +26,7 @@ var questSearch = (res) => {
   Question.find({}, (err, quest) => {
     if (err) return console.log(err)
     res.render('home', {name: 'fellow WDI 12 Hustler.', qList: quest})
-    console.log('render trigger', quest)
+    return console.log('render trigger', quest)
   }
 )
 }
@@ -41,37 +41,26 @@ app.post('/', (req, res) => {
       console.log('question added', req.body.question)
     })
     .then(() => {
-      res.redirect('/')
+      return res.redirect('/')
     }, (err) => {
-      console.log(err)
+      return console.log(err)
     })
-  } else {
-    console.log('triggered here for', Object.keys(req.body)[0], req.body[Object.keys(req.body)[0]], typeof(Object.keys(req.body)[0]), typeof(req.body[Object.keys(req.body)[0]]))
-    // Question.findByIdAndUpdate(Object.keys(req.body)[0], {$set: { question: 'wtf', score: 1 }}) // TODO: check if it matters if id is string or number
-    // console.log('else trigger')
+  } else if (Object.keys(req.body).length) {
+    console.log('Object keys', Object.keys(req.body))
+    console.log('req.body', req.body)
     Question.findById(Object.keys(req.body)[0], function (err, doc) {
       if (err) return console.log(err)
       doc.score += Number(req.body[Object.keys(req.body)[0]])
       doc.save()
       .then(() => {
-        res.redirect('/')
+        return res.redirect('/')
       }, (err) => {
-        console.log(err)
+        return console.log(err)
       })
     })
   }
-  // res.redirect('/')
-  console.log('redirected')
 })
 
-app.post('/vote', (req, res) => {
-  console.log(this.value) // TODO: upon clicking button, find the question entry, and add/subtract score
-  // Question.create({question: req.body.question, score: 0}, function (err, question) {
-  //   if (err) return console.log(err)
-  //   console.log('question added', req.body.question)
-  // })
-  // res.redirect('/')
-})
 app.listen(port, () => {
   console.log('App is running on port 8080')
 })
