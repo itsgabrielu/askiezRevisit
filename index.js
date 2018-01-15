@@ -34,18 +34,33 @@ var questSearch = (res) => {
 app.get('/', (req, res) => {
   questSearch(res)
 })
-
 app.post('/', (req, res) => {
-  console.log('triggered here for', Object.keys(req.body)[0])
   if (req.body.question) {
     Question.create({question: req.body.question, score: 0}, function (err, question) {
       if (err) return console.log(err)
       console.log('question added', req.body.question)
     })
+    .then(() => {
+      res.redirect('/')
+    }, (err) => {
+      console.log(err)
+    })
   } else {
-    Question.findByIdAndUpdate(Object.keys(req.body)[0], { $set: { score: 1 }})
+    console.log('triggered here for', Object.keys(req.body)[0], req.body[Object.keys(req.body)[0]], typeof(Object.keys(req.body)[0]), typeof(req.body[Object.keys(req.body)[0]]))
+    // Question.findByIdAndUpdate(Object.keys(req.body)[0], {$set: { question: 'wtf', score: 1 }}) // TODO: check if it matters if id is string or number
+    // console.log('else trigger')
+    Question.findById(Object.keys(req.body)[0], function (err, doc) {
+      if (err) return console.log(err)
+      doc.score += Number(req.body[Object.keys(req.body)[0]])
+      doc.save()
+      .then(() => {
+        res.redirect('/')
+      }, (err) => {
+        console.log(err)
+      })
+    })
   }
-  res.redirect('/')
+  // res.redirect('/')
   console.log('redirected')
 })
 
