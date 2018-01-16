@@ -22,13 +22,8 @@
     <div class="tile is-child box">
     {{ this.question}}
     <form action = '/' method = "post">
-      {{!-- <input type="radio" name={{this._id}} value="1"> &#128077; <br>
-      <input type="radio" name={{this._id}} value="-1"> &#128078;<br>
-      <input type="submit" value="Vote!"> --}}
-
-      <input type="submit" name={{this._id}} value=1>
-      <input type="submit" name={{this._id}} value=-1>
-      {{!-- <button type= --}}
+      <button type="submit" name={{this._id}} value=-1>&#8595;</button>
+      <button type="submit" name={{this._id}} value=1>&#8593;</button>
     </form>
     <p>{{ this.score}} points<p>
   </div>
