@@ -21,7 +21,7 @@
   <div class="tile is -4">
     <div class="tile is-child box">
     <p>{{ this.question}}</p>
-    <p> {{this.createdAt}} </p>
+    <p> {{this.createdAt}} </p> {{!-- TODO: show x time ago instead, alternate coloring of tiles --}}
     <form action = '/' method = "post">
       <button type="submit" name={{this._id}} value=-1>&#8595;</button>
       <button type="submit" name={{this._id}} value=1>&#8593;</button>
