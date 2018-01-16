@@ -20,12 +20,13 @@
   <div class="tile is-ancestor">
   <div class="tile is -4">
     <div class="tile is-child box">
-    {{ this.question}}
+    <p>{{ this.question}}</p>
+    <p> {{this.createdAt}} </p>
     <form action = '/' method = "post">
       <button type="submit" name={{this._id}} value=-1>&#8595;</button>
       <button type="submit" name={{this._id}} value=1>&#8593;</button>
     </form>
-    <p>{{ this.score}} points<p>
+    <small>{{ this.score}} points</small>
   </div>
   </div>
 </div>

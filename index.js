@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
-// const path = require('path')
+const path = require('path')
+app.use(express.static(path.join(__dirname, 'public')))
+
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
